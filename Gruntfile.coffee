@@ -1,0 +1,75 @@
+
+module.exports = (grunt) ->
+
+  # // show elapsed time at the end
+  require('time-grunt')(grunt)
+
+  # // load all grunt tasks
+  require('load-grunt-tasks')(grunt)
+
+  reloadPort = 35729
+
+  grunt.initConfig
+    pkg: grunt.file.readJSON('package.json')
+
+    # develop:
+    #   server:
+    #     file: 'app.coffee'
+    #     cmd: 'coffee'
+
+    express:
+      options:
+        cmd: 'coffee'
+
+      dev:
+        options:
+          script: 'app/server.coffee'
+
+      prod:
+        options:
+          script: 'app/server.coffee'
+          node_env: 'production'
+
+      test:
+        options:
+          script: 'app/server.coffee'
+
+
+
+
+    watch:
+      options:
+        nospawn: true,
+        livereload: true
+
+      # server:
+      #   files: [
+      #     'app.coffee',
+      #     'app/**/*.coffee',
+      #     'config/*.coffee'
+      #   ],
+      #   tasks: ['develop']
+      #   options:
+      #     livereload: reloadPort
+      express:
+        files:  [ '**/*.coffee' ]
+        tasks:  [ 'express:dev' ]
+        options:
+          spawn: false
+
+      js:
+        files: ['public/js/*.js'],
+        options:
+          livereload: reloadPort
+
+      css:
+        files: ['public/css/*.css'],
+        options:
+          livereload: reloadPort
+
+      views:
+        files: [ 'app/views/**/*.jade' ]
+        options:
+          livereload: reloadPort
+
+  grunt.registerTask('default', ['express:dev', 'watch'])
