@@ -23,9 +23,6 @@ app.use express.json()
 app.use express.urlencoded()
 app.use express.methodOverride()
 
-app.use express.cookieParser()
-app.use express.bodyParser()
-app.use expressValidator()
 app.use express.session( secret: 'steve the tv' )
 
 app.use Passport.initialize()
