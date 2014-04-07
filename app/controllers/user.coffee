@@ -11,4 +11,4 @@ module.exports.controller -> (app)
         req.flash('error', 'Unable to create account.')
         res.redirect('/register')
 
-    res.send "respond with a resource"
+    res.send(200, { name: 'tobi' });
