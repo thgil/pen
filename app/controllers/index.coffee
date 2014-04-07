@@ -1,9 +1,5 @@
 
-#
-# * GET home page.
-# 
-exports.index = (req, res) ->
-  res.render "index",
-    title: "Express"
-
-  return
+module.exports.controller -> (app)
+  app.get '/', (req, res) ->
+    res.render "index",
+      title: "Express"
