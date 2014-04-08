@@ -1,9 +1,9 @@
-assert = require("assert")
-request = require('supertest')
-express = require('express');
+chai = require 'chai'
+request = require 'supertest'
+app = require '../app/server'
 
 describe 'GET /users', ->
-  it 'respond with json', ->
+  it 'respond with json', (done) ->
     request(app)
       .get('/user')
       .set('Accept', 'application/json')

@@ -3,6 +3,6 @@ module.exports = (BookShelf) ->
     client: 'pg',
     connection:
       host: 'localhost'
-      user: 'username'
-      password: 'password'
-      database: 'dbname'
+      user: 'psql'
+      password: ''
+      database: 'pen'
