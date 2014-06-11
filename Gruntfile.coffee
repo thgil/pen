@@ -7,7 +7,7 @@ module.exports = (grunt) ->
   # # // load all grunt tasks
   # require('load-grunt-tasks')(grunt)
   #
-  # reloadPort = 35729
+  reloadPort = 35729
 
   grunt.initConfig
     # pkg: grunt.file.readJSON('package.json')
@@ -40,7 +40,7 @@ module.exports = (grunt) ->
         tasks:  [ 'express:dev' ]
         options:
           spawn: false
-          livereload: true
+          livereload: reloadPort
 
       # js:
       #   files: ['public/js/*.js']

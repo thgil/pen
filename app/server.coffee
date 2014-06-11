@@ -41,12 +41,12 @@ require('./util/auth')(Passport);
 
 # dynamically include controllers
 
-fs.readdirSync( __dirname + '/controllers' ).forEach (file) ->
-  if file.substr(-7) is '.coffee'
-    route = require('./controllers/' + file )(app)
-    # route(app)
+# fs.readdirSync( __dirname + '/controllers' ).forEach (file) ->
+#   if file.substr(-7) is '.coffee'
+#     route = require('./controllers/' + file )(app)
+#     # route(app)
 
-  # require('./controllers/index')(app);
+require('./controllers/index')(app);
 
 http.createServer(app).listen app.get("port"), ->
   console.log "Express server listening on port " + app.get("port")

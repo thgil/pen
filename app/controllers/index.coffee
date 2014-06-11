@@ -1,4 +1,5 @@
 
 module.exports = (app) ->
   app.get '/', (req, res) ->
-    res.send('boops')
+    console.log "test"
+    res.send('testkkkasdasasdasdasdasdasdas')
